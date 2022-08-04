@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5378E9A289B8DC4006BD57F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */; };
 		B5A972D4289A8F2E0071E4F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */; };
 		B5A972D6289A8F2E0071E4F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */; };
-		B5A972D8289A8F2E0071E4F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A972D7289A8F2E0071E4F1 /* ViewController.swift */; };
 		B5A972DB289A8F2E0071E4F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A972D9289A8F2E0071E4F1 /* Main.storyboard */; };
 		B5A972DD289A8F310071E4F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A972DC289A8F310071E4F1 /* Assets.xcassets */; };
 		B5A972E0289A8F310071E4F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A972DE289A8F310071E4F1 /* LaunchScreen.storyboard */; };
@@ -19,10 +19,10 @@
 /* Begin PBXFileReference section */
 		76844142DE17E35D4E7DEB10 /* Pods-Financial App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Financial App.debug.xcconfig"; path = "Target Support Files/Pods-Financial App/Pods-Financial App.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD6F90F91105BFCA20118BB /* Pods-Financial App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Financial App.release.xcconfig"; path = "Target Support Files/Pods-Financial App/Pods-Financial App.release.xcconfig"; sourceTree = "<group>"; };
+		B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		B5A972D0289A8F2E0071E4F1 /* Financial App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Financial App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B5A972D7289A8F2E0071E4F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5A972DA289A8F2E0071E4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5A972DC289A8F310071E4F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5A972DF289A8F310071E4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +56,6 @@
 				76844142DE17E35D4E7DEB10 /* Pods-Financial App.debug.xcconfig */,
 				9FD6F90F91105BFCA20118BB /* Pods-Financial App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,8 +82,8 @@
 			children = (
 				B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */,
 				B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */,
-				B5A972D7289A8F2E0071E4F1 /* ViewController.swift */,
 				B5A972D9289A8F2E0071E4F1 /* Main.storyboard */,
+				B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */,
 				B5A972DC289A8F310071E4F1 /* Assets.xcassets */,
 				B5A972DE289A8F310071E4F1 /* LaunchScreen.storyboard */,
 				B5A972E1289A8F310071E4F1 /* Info.plist */,
@@ -207,8 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5A972D8289A8F2E0071E4F1 /* ViewController.swift in Sources */,
 				B5A972D4289A8F2E0071E4F1 /* AppDelegate.swift in Sources */,
+				B5378E9A289B8DC4006BD57F /* SearchTableViewController.swift in Sources */,
 				B5A972D6289A8F2E0071E4F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
