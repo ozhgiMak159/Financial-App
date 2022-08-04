@@ -258,6 +258,35 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lbX-9l-vcM" id="phz-FK-rkF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-iG-Q1n">
+                                                    <rect key="frame" x="16" y="8" width="382" height="134"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-vr-5CD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="134"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your initial investment amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDl-eS-FIm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="113.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-uv-3EK">
+                                                                    <rect key="frame" x="0.0" y="113.5" width="382" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dO1-iG-Q1n" firstAttribute="leading" secondItem="phz-FK-rkF" secondAttribute="leading" constant="16" id="8Vu-YG-DbV"/>
+                                                <constraint firstAttribute="trailing" secondItem="dO1-iG-Q1n" secondAttribute="trailing" constant="16" id="A6h-E3-M9O"/>
+                                                <constraint firstAttribute="bottom" secondItem="dO1-iG-Q1n" secondAttribute="bottom" constant="8" id="SEc-bb-eyV"/>
+                                                <constraint firstItem="dO1-iG-Q1n" firstAttribute="top" secondItem="phz-FK-rkF" secondAttribute="top" constant="8" id="pCO-kR-msg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
