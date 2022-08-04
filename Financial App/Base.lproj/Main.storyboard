@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="113" id="OsL-Iw-oae">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="113" id="OsL-Iw-oae" customClass="SearchTableViewCell" customModule="Financial_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OsL-Iw-oae" id="lRA-7z-1FP">
@@ -70,6 +70,11 @@
                                         <constraint firstAttribute="trailing" secondItem="cZj-e1-Hyy" secondAttribute="trailing" constant="16" id="zaW-7Z-umA"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="assetNameLabel" destination="hUh-X0-dGB" id="999-sQ-f12"/>
+                                    <outlet property="assetSymbolLabel" destination="n5s-wr-ayw" id="kcU-1q-84A"/>
+                                    <outlet property="assetTypeLabel" destination="EfB-D8-afw" id="kgK-Gc-Uzq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

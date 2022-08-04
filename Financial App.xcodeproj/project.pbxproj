@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B5378E9A289B8DC4006BD57F /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */; };
+		B5378E9F289B97D9006BD57F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5378E9E289B97D9006BD57F /* SearchTableViewCell.swift */; };
+		B5378EA2289B9B5F006BD57F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5378EA1289B9B5F006BD57F /* NetworkManager.swift */; };
 		B5A972D4289A8F2E0071E4F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */; };
 		B5A972D6289A8F2E0071E4F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */; };
 		B5A972DB289A8F2E0071E4F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A972D9289A8F2E0071E4F1 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		76844142DE17E35D4E7DEB10 /* Pods-Financial App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Financial App.debug.xcconfig"; path = "Target Support Files/Pods-Financial App/Pods-Financial App.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD6F90F91105BFCA20118BB /* Pods-Financial App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Financial App.release.xcconfig"; path = "Target Support Files/Pods-Financial App/Pods-Financial App.release.xcconfig"; sourceTree = "<group>"; };
 		B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		B5378E9E289B97D9006BD57F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		B5378EA1289B9B5F006BD57F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B5A972D0289A8F2E0071E4F1 /* Financial App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Financial App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B5378E9B289B9798006BD57F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */,
+				B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B5378E9C289B97A4006BD57F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5378E9E289B97D9006BD57F /* SearchTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5378E9D289B97AB006BD57F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B5378EA0289B9B31006BD57F /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B5378EA1289B9B5F006BD57F /* NetworkManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B5A972C7289A8F2E0071E4F1 = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +117,11 @@
 		B5A972D2289A8F2E0071E4F1 /* Financial App */ = {
 			isa = PBXGroup;
 			children = (
-				B5A972D3289A8F2E0071E4F1 /* AppDelegate.swift */,
-				B5A972D5289A8F2E0071E4F1 /* SceneDelegate.swift */,
+				B5378EA0289B9B31006BD57F /* Service */,
+				B5378E9D289B97AB006BD57F /* Controller */,
+				B5378E9C289B97A4006BD57F /* View */,
+				B5378E9B289B9798006BD57F /* App */,
 				B5A972D9289A8F2E0071E4F1 /* Main.storyboard */,
-				B5378E99289B8DC4006BD57F /* SearchTableViewController.swift */,
 				B5A972DC289A8F310071E4F1 /* Assets.xcassets */,
 				B5A972DE289A8F310071E4F1 /* LaunchScreen.storyboard */,
 				B5A972E1289A8F310071E4F1 /* Info.plist */,
@@ -207,6 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5A972D4289A8F2E0071E4F1 /* AppDelegate.swift in Sources */,
+				B5378E9F289B97D9006BD57F /* SearchTableViewCell.swift in Sources */,
+				B5378EA2289B9B5F006BD57F /* NetworkManager.swift in Sources */,
 				B5378E9A289B8DC4006BD57F /* SearchTableViewController.swift in Sources */,
 				B5A972D6289A8F2E0071E4F1 /* SceneDelegate.swift in Sources */,
 			);
