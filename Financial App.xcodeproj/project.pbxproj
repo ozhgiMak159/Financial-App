@@ -129,6 +129,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		B5378EAC289C155E006BD57F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B5A972DC289A8F310071E4F1 /* Assets.xcassets */,
+				B5A972E1289A8F310071E4F1 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		B5A972C7289A8F2E0071E4F1 = {
 			isa = PBXGroup;
 			children = (
@@ -150,14 +159,13 @@
 		B5A972D2289A8F2E0071E4F1 /* Financial App */ = {
 			isa = PBXGroup;
 			children = (
-				B5378EA9289BE788006BD57F /* Protocol */,
-				B5378EA4289B9E29006BD57F /* Model */,
 				B5378EA0289B9B31006BD57F /* Service */,
+				B5378EA4289B9E29006BD57F /* Model */,
 				B5378E9D289B97AB006BD57F /* Controller */,
 				B5378E9C289B97A4006BD57F /* View */,
+				B5378EA9289BE788006BD57F /* Protocol */,
 				B5378E9B289B9798006BD57F /* App */,
-				B5A972DC289A8F310071E4F1 /* Assets.xcassets */,
-				B5A972E1289A8F310071E4F1 /* Info.plist */,
+				B5378EAC289C155E006BD57F /* Resource */,
 			);
 			path = "Financial App";
 			sourceTree = "<group>";
@@ -436,7 +444,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GQU4PC2XPJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Financial App/Info.plist";
+				INFOPLIST_FILE = "Financial App/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -465,7 +473,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GQU4PC2XPJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Financial App/Info.plist";
+				INFOPLIST_FILE = "Financial App/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

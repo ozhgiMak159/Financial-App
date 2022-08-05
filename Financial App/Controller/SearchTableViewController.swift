@@ -26,9 +26,9 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         return viewController
     }()
     
-    private let apiService = ApiService()
     private var subscribes = Set<AnyCancellable>()
     private var searchResults: SearchResults?
+    
     @Published private var mode: Mode = .onboarding
     @Published private var searchQuery = String()
     
@@ -36,16 +36,16 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         super.viewDidLoad()
         setupNavigationBar()
         setupTableView()
-        observeForm()
+        observeFormSearchQuery()
+        observeFormMode()
     }
     
- 
-    private func observeForm() {
+    private func observeFormSearchQuery() {
         $searchQuery
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
-            .sink { [unowned self] searcheQuewry in
+            .sink { [unowned self] searchQuery in
                 showLoadingAnimation()
-                self.apiService.fetchSymbolsPublisher(keywords: searcheQuewry).sink { completion in
+                    NetworkManager.shared.fetchData(keywords: searchQuery).sink { completion in
                     hideLoadingAnimation()
                     switch completion {
                     case .finished:
@@ -58,9 +58,10 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
                     self.tableView.reloadData()
                 }.store(in: &self.subscribes)
             }.store(in: &subscribes)
-        
-        
-        
+    }
+    
+    
+    private func observeFormMode() {
         $mode.sink { [unowned self] (mode) in
             switch mode {
             case .onboarding:
@@ -71,18 +72,16 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             
         }.store(in: &subscribes)
     }
-
+    
     private func setupNavigationBar() {
         navigationItem.searchController = searcheController
         navigationItem.title = "Search"
     }
-    
+    // ??
     private func setupTableView() {
         tableView.tableFooterView = UIView()
     }
     
-    
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
