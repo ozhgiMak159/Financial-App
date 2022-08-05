@@ -9,7 +9,7 @@ import UIKit
 
 class SearchPlaceholderView: UIView {
     
-    private let imageView: UIImageView = {
+    private lazy var imageView: UIImageView = {
         let image = UIImage(named: "imDca")
         let imageView = UIImageView()
         imageView.image = image
@@ -17,7 +17,7 @@ class SearchPlaceholderView: UIView {
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
        let label = UILabel()
         label.text = "Search for companies to calculate potential returns via dollar cost averaging."
         label.font = UIFont(name: "AvenirNext-Medium", size: 14)!
@@ -43,7 +43,6 @@ class SearchPlaceholderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func setupView() {
         addSubview(stackView)

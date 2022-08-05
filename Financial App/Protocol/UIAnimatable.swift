@@ -8,6 +8,8 @@
 import Foundation
 import MBProgressHUD
 
+
+// Расширение????
 protocol UIAnimatable where Self: UIViewController {
     func showLoadingAnimation()
     func hideLoadingAnimation()

@@ -32,3 +32,11 @@ class NetworkManager {
     private init() {}
 }
 
+
+// func fetch<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
+//              URLSession.shared.dataTaskPublisher(for: url)             // 1
+//               .map { $0.data}                                          // 2
+//               .decode(type: T.self, decoder: APIConstants.jsonDecoder) // 3
+//               .receive(on: RunLoop.main)                               // 4
+//               .eraseToAnyPublisher()                                   // 5
+//}

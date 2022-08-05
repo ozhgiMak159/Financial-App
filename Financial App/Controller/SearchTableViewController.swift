@@ -29,8 +29,8 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     private var subscribes = Set<AnyCancellable>()
     private var searchResults: SearchResults?
     
+    @Published private var searchQuery: String = ""
     @Published private var mode: Mode = .onboarding
-    @Published private var searchQuery = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,6 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     }
     
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults?.items.count ?? 0
     }
@@ -91,8 +90,8 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchTableViewCell
         if let searchResults = searchResults {
-            let searcheResult = searchResults.items[indexPath.row]
-            cell.configure(with: searcheResult)
+            let searchResult = searchResults.items[indexPath.row]
+            cell.configure(with: searchResult)
             
         }
         return cell
@@ -100,7 +99,6 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
     }
 
 }
