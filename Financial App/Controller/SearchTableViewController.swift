@@ -44,6 +44,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         $searchQuery
             .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self] searchQuery in
+                guard !searchQuery.isEmpty else { return }
                 showLoadingAnimation()
                     NetworkManager.shared.fetchData(keywords: searchQuery).sink { completion in
                     hideLoadingAnimation()
@@ -95,6 +96,10 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
     // MARK: - Navigation
