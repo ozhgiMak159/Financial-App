@@ -68,6 +68,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
                 self.tableView.backgroundView = SearchPlaceholderView()
             case .search:
                 self.tableView.backgroundView = nil
+                print("Photo")
             }
             
         }.store(in: &subscribes)
@@ -122,6 +123,8 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             let symbol = searchResult.symbol
             handleSelection(for: symbol, searchResult: searchResult)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Navigation
