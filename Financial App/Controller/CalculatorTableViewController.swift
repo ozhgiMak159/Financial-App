@@ -64,14 +64,16 @@ class CalculatorTableViewController: UITableViewController {
     }
     
     private func observerForm() {
+        
         $initialDateOfInvestmentIndex.sink { [weak self] index in
             guard let index = index else { return }
             self?.dateSlider.value = index.floatValue
+            
             if let dateString = self?.asset?.timeSeriesMonthlyAdjusted.getMonthInfos()[index].date.dateFormatter {
                 self?.initialDateOfInvestment.text = dateString
             }
+            
         }.store(in: &subscribers)
-        
         
         
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: initialInvestmentAmountTextField)
@@ -80,8 +82,6 @@ class CalculatorTableViewController: UITableViewController {
             }).sink { [weak self] text in
                 self?.initialInvestmentAmount = Int(text) ?? 0
             }.store(in: &subscribers)
-        
-        
         
         NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification, object: monthlyDollarCostAveragingTextField)
             .compactMap { notification -> String? in
@@ -93,6 +93,7 @@ class CalculatorTableViewController: UITableViewController {
             }.sink { [weak self] (text) in
                 self?.monthlyDollarCostAveraging = Int(text) ?? 0
             }.store(in: &subscribers)
+        
         
         Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveraging, $initialDateOfInvestmentIndex)
             .sink { (initialInvestmentAmount, monthlyDollarCostAveraging, initialDateOfInvestmentIndex)  in
@@ -108,9 +109,11 @@ class CalculatorTableViewController: UITableViewController {
         
         dateSelectionTableViewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
         dateSelectionTableViewController.selectedIndex = initialDateOfInvestmentIndex
+        
         dateSelectionTableViewController.didSelectDate = { [weak self] index in
             self?.handleDateSelection(at: index)
         }
+        
     }
     
     private func handleDateSelection(at index: Int) {
@@ -138,6 +141,7 @@ extension CalculatorTableViewController: UITextFieldDelegate {
             performSegue(withIdentifier: "showInitialSelection", sender: asset?.timeSeriesMonthlyAdjusted)
             return false
         }
+        
         return true
     }
 }

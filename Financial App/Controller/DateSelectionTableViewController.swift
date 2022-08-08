@@ -14,7 +14,7 @@ class DateSelectionTableViewController: UITableViewController {
     var timeSeriesMonthlyAdjusted: TimeSeriesMonthlyAdjusted?
     private var mountInfos: [MonthInfo] = []
     
-    //????
+    //???? передача данных через протокол
     var didSelectDate: ((Int) -> Void)?
     var selectedIndex: Int?
     
@@ -48,7 +48,10 @@ extension DateSelectionTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DateSelectionTableViewCell
         let index = indexPath.row
         let monthInfo = mountInfos[index]
+        
         let isSelected = index == selectedIndex
+        
+        
         cell.configure(with: monthInfo, index: index, isSelectedIndex: isSelected)
         
         return cell
@@ -56,7 +59,6 @@ extension DateSelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectDate?(indexPath.row)
-        tableView.deselectRow(at: indexPath, animated: true) // ????? Выделения строки
     }
     
     

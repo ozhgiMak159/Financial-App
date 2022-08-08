@@ -72,6 +72,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             }
             
         }.store(in: &subscribes)
+        
     }
     
     private func setupNavigationBar() {
@@ -100,6 +101,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
                 self?.performSegue(withIdentifier: "showCalculator", sender: asset)
                 print("seccess: \(timeSeriesMonthlyAdjusted.getMonthInfos())")
             }.store(in: &subscribes)
+        
     }
     
     // MARK: - Table view data source
@@ -132,10 +134,9 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         if segue.identifier == "showCalculator",
             let destination = segue.destination as? CalculatorTableViewController,
             let asset = sender as? Asset {
-            
-            destination.asset = asset
-            
+                destination.asset = asset
         }
+        
     }
 
 }

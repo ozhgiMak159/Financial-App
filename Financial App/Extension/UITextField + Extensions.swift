@@ -9,6 +9,7 @@ import UIKit
 
 extension UITextField {
     //???????? косяк исправить!
+    // Сделать человеческий туллбар
     func addDoneButton() {
         let screenWidth = UIScreen.main.bounds.width
         let doneToolBar: UIToolbar = UIToolbar.init(frame: .init(x: 0, y: 0, width: screenWidth, height: 50))
@@ -24,8 +25,5 @@ extension UITextField {
     @objc private func dismissKeyboard() {
         resignFirstResponder()
     }
-    
-    
-    
     
 }
