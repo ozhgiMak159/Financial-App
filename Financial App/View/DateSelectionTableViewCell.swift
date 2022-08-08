@@ -15,9 +15,15 @@ class DateSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var monthsAgoLabel: UILabel!
     
     
-    func configure(with monthInfo: MonthInfo, index: Int) {
+    func configure(with monthInfo: MonthInfo, index: Int, isSelectedIndex: Bool) {
         monthLabel.text = monthInfo.date.dateFormatter
         
+        accessoryType = isSelectedIndex
+                        ? .checkmark
+                        : .none
+        
+        
+        // Подумать как сделать свитч и выписывать года и месяцы
         if index == 1 {
             monthsAgoLabel.text = "1 month ago"
         } else if index > 1 {
@@ -25,7 +31,10 @@ class DateSelectionTableViewCell: UITableViewCell {
         } else {
             monthsAgoLabel.text = "Just invested"
         }
-
+        
+        
+        
+        
     }
     
 }
