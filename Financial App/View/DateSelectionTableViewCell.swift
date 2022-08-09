@@ -32,7 +32,7 @@ class DateSelectionTableViewCell: UITableViewCell {
             monthsAgoLabel.text = "Just invested"
         }
         
-        
+     
         
         
     }

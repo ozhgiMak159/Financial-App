@@ -11,6 +11,11 @@ import Combine
 class CalculatorTableViewController: UITableViewController {
     
     
+    @IBOutlet weak var currentValueLabel: UILabel!
+    @IBOutlet weak var investmentAmountLabel: UILabel!
+    @IBOutlet weak var gainLabel: UILabel!
+    @IBOutlet weak var yieldLabel: UILabel!
+    @IBOutlet weak var annualReturnLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet var currencyLabels: [UILabel]!
@@ -32,7 +37,8 @@ class CalculatorTableViewController: UITableViewController {
     @Published private var monthlyDollarCostAveraging: Int?
     
     private var subscribers = Set<AnyCancellable>()
-
+    private let dcaService = DCAService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -96,8 +102,23 @@ class CalculatorTableViewController: UITableViewController {
         
         
         Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveraging, $initialDateOfInvestmentIndex)
-            .sink { (initialInvestmentAmount, monthlyDollarCostAveraging, initialDateOfInvestmentIndex)  in
-                //
+            .sink { [weak self] (initialInvestmentAmount, monthlyDollarCostAveraging, initialDateOfInvestmentIndex)  in
+                guard let initialInvestmentAmount = initialInvestmentAmount,
+                        let monthlyDollarCostAveraging = monthlyDollarCostAveraging,
+                        let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex,
+                        let asset = self?.asset else { return }
+                
+                let result = self?.dcaService.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue,
+                                                        monthlyDollarCostAveragingAmount: monthlyDollarCostAveraging.doubleValue,
+                                                        initialDateInvestmentIndex: initialDateOfInvestmentIndex)
+                
+                self?.currentValueLabel.backgroundColor = (result?.isProfitable == true) ? .themeGreenShade : .themeRedShade
+                self?.currentValueLabel.text = result?.currentValue.currencyFormat
+                self?.investmentAmountLabel.text = result?.investmentAmount.currencyFormat
+                self?.gainLabel.text = result?.gain.toCurrencyFormat(hasDollarSymbol: false, hasDecimalPlaces: false)
+                self?.yieldLabel.text = result?.yield.stringValue
+                self?.annualReturnLabel.text = result?.annualReturn.stringValue
+                
             }.store(in: &subscribers)
         
     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RmA-Wp-t2x">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -151,12 +152,21 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hna-tW-gAO">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3Z-Yf-oKo">
                                                             <rect key="frame" x="0.0" y="50" width="382" height="21"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hna-tW-gAO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="54" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tzv-uQ-5Bz">
+                                                                    <rect key="frame" x="54" y="0.0" width="328" height="21"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6pe-0y-8rb">
                                                             <rect key="frame" x="0.0" y="74" width="382" height="18"/>
                                                             <subviews>
@@ -391,13 +401,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="cig-VN-BZ6"/>
                     <connections>
+                        <outlet property="annualReturnLabel" destination="aUh-ZD-HYb" id="dTe-LP-7Gs"/>
+                        <outlet property="currentValueLabel" destination="hna-tW-gAO" id="9fg-Lk-173"/>
                         <outlet property="dateSlider" destination="s9Z-1S-Xrh" id="9TT-AO-tbt"/>
+                        <outlet property="gainLabel" destination="7wX-F7-fL6" id="ip7-tZ-1VT"/>
                         <outlet property="initialDateOfInvestment" destination="my4-Dk-UQA" id="cfC-Yo-lgX"/>
                         <outlet property="initialInvestmentAmountTextField" destination="dDl-eS-FIm" id="mcH-Ks-Z88"/>
                         <outlet property="investmentAmountCurrencyLabel" destination="yfX-1A-MQC" id="mWa-Ro-EHG"/>
+                        <outlet property="investmentAmountLabel" destination="s9F-GX-NJH" id="fH2-rW-EIi"/>
                         <outlet property="monthlyDollarCostAveragingTextField" destination="unm-cJ-X41" id="xph-23-feU"/>
                         <outlet property="nameLabel" destination="hN9-qK-YlJ" id="bKq-3n-mti"/>
                         <outlet property="symbolLabel" destination="Kta-AY-Sud" id="GYu-Af-mGB"/>
+                        <outlet property="yieldLabel" destination="MZG-gb-mHR" id="IYc-zH-Ifv"/>
                         <outletCollection property="currencyLabels" destination="dTh-YK-mYg" collectionClass="NSMutableArray" id="hab-el-bHk"/>
                         <outletCollection property="currencyLabels" destination="gve-9c-cZo" collectionClass="NSMutableArray" id="aO5-sK-8xf"/>
                         <outletCollection property="currencyLabels" destination="oCn-IO-cB1" collectionClass="NSMutableArray" id="thu-QV-ppD"/>
