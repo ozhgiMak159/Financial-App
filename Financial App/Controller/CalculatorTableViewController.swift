@@ -42,13 +42,12 @@ class CalculatorTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        initialInvestmentAmountTextField.becomeFirstResponder()
+            initialInvestmentAmountTextField.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupTextFields()
         setupDateSlider()
         observerForm()
     }
@@ -61,13 +60,11 @@ class CalculatorTableViewController: UITableViewController {
         currencyLabels.forEach { label in
             label.text = asset?.searchResult.currency.addBrackets()
         }
-    }
-    
-    private func setupTextFields() {
+        
         initialInvestmentAmountTextField.addDoneButton()
         monthlyDollarCostAveragingTextField.addDoneButton()
     }
-    
+        
     private func setupDateSlider() {
         if let count = asset?.timeSeriesMonthlyAdjusted.getMonthInfos().count {
             let dateSliderCount = count - 1
@@ -112,9 +109,8 @@ class CalculatorTableViewController: UITableViewController {
     
     private func publisherElement() {
         Publishers.CombineLatest3($initialInvestmentAmount, $monthlyDollarCostAveraging, $initialDateOfInvestmentIndex)
-            .sink { [weak self] (initialInvestmentAmount, monthlyDollarCostAveraging, initialDateOfInvestmentIndex)  in
-                guard let initialInvestmentAmount = initialInvestmentAmount,
-                        let monthlyDollarCostAveraging = monthlyDollarCostAveraging,
+            .sink { [weak self] (initialInvestmentAmount, monthlyDollarCostAveraging, initialDateOfInvestmentIndex) in
+                guard let initialInvestmentAmount = initialInvestmentAmount, let monthlyDollarCostAveraging = monthlyDollarCostAveraging,
                         let initialDateOfInvestmentIndex = initialDateOfInvestmentIndex,
                         let asset = self?.asset else {
                             self?.resetViews()
@@ -155,8 +151,8 @@ class CalculatorTableViewController: UITableViewController {
         dateSelectionTableViewController.didSelectDate = { [weak self] index in
             self?.handleDateSelection(at: index)
         }
-        
     }
+    
     
     private func handleDateSelection(at index: Int) {
         guard navigationController?.visibleViewController is DateSelectionTableViewController else { return }
@@ -173,9 +169,15 @@ class CalculatorTableViewController: UITableViewController {
     private func resetViews() {
         currentValueLabel.text = "0.00"
         investmentAmountLabel.text = "0.00"
+        
         gainLabel.text = "-"
+        gainLabel.textColor = .black
+        
         yieldLabel.text = "-"
+        yieldLabel.textColor = .black
+        
         annualReturnLabel.text = "-"
+        annualReturnLabel.textColor = .black
     }
     
     
