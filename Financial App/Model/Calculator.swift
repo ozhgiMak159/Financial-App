@@ -34,12 +34,12 @@ struct Calculator {
     
     private func getAnnualReturn(currentValue: Double, investmentAmount: Double, initialDateOfInvestmentIndex: Int) -> Double {
         let rate = currentValue / investmentAmount
-        let yers = ((initialDateOfInvestmentIndex + 1) / 12).doubleValue
-        
-        return pow(rate, (1 / yers)) - 1
+        let yers = (initialDateOfInvestmentIndex.doubleValue + 1) / 12
+        let result = pow(rate, (1 / yers) ) - 1
+        return result
     }
     
-    private func getInvestmentAmount(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateInvestmentIndex: Int) -> Double {
+     func getInvestmentAmount(initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateInvestmentIndex: Int) -> Double {
         var totalAmount = 0.0
         totalAmount += initialInvestmentAmount
         
@@ -65,7 +65,7 @@ struct Calculator {
         totalShares += initialInvestmentShares
         asset.timeSeriesMonthlyAdjusted.getMonthInfos().prefix(initialDateInvestmentIndex).forEach { monthInfo in
             let dcaInvestmentShares = monthlyDollarCostAveragingAmount / monthInfo.adjustedOpen
-            totalShares += dcaInvestmentShares
+            totalShares += dcaInvestmentShares 
         }
         
             return totalShares

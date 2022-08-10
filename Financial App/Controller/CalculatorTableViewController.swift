@@ -53,6 +53,7 @@ class CalculatorTableViewController: UITableViewController {
     }
 
     private func setupView() {
+        navigationItem.title = asset?.searchResult.symbol
         symbolLabel.text = asset?.searchResult.symbol
         nameLabel.text = asset?.searchResult.name
         investmentAmountCurrencyLabel.text = asset?.searchResult.currency
@@ -127,7 +128,7 @@ class CalculatorTableViewController: UITableViewController {
                 self?.currentValueLabel.textColor = isProfitable ? .systemGreen : .systemRed
                 self?.currentValueLabel.text = result?.currentValue.currencyFormat
                 
-                self?.investmentAmountLabel.text = result?.investmentAmount.currencyFormat
+                self?.investmentAmountLabel.text = result?.investmentAmount.toCurrencyFormat(hasDecimalPlaces: false)
                 self?.gainLabel.text = result?.gain.toCurrencyFormat(hasDollarSymbol: false, hasDecimalPlaces: false).prefix(withText: gainSymbol)
                 
                 self?.yieldLabel.text = result?.yield.percentageFormat.prefix(withText: gainSymbol).addBrackets()
