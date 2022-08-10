@@ -12,14 +12,15 @@ import MBProgressHUD
 enum Mode {
     case onboarding
     case search
+    //case resum
 }
 
 class SearchTableViewController: UITableViewController, UIAnimatable {
   
-    private lazy var searcheController: UISearchController = {
+    private lazy var searchController: UISearchController = {
        let viewController = UISearchController(searchResultsController: nil)
         viewController.searchResultsUpdater = self
-        viewController.delegate = self
+        //viewController.delegate = self
         viewController.obscuresBackgroundDuringPresentation = false
         viewController.searchBar.placeholder = "Enter a company name or symbol"
         viewController.searchBar.autocapitalizationType = .allCharacters
@@ -28,6 +29,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     
     private var subscribes = Set<AnyCancellable>()
     private var searchResults: SearchResults?
+    private var one = SearchPlaceholderView()
     
     @Published private var searchQuery: String = ""
     @Published private var mode: Mode = .onboarding
@@ -38,7 +40,14 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         setupTableView()
         observeFormSearchQuery()
         observeFormMode()
+        setDelegate()
     }
+    
+    private func setDelegate() {
+        searchController.delegate = self
+      //  searchController.searchBar.delegate = self
+    }
+    
     
     private func observeFormSearchQuery() {
         $searchQuery
@@ -62,22 +71,28 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             }.store(in: &subscribes)
     }
     
+    
+    
+    
     private func observeFormMode() {
         $mode.sink { [unowned self] (mode) in
             switch mode {
             case .onboarding:
                 self.tableView.backgroundView = SearchPlaceholderView()
             case .search:
-                self.tableView.backgroundView = nil
-                print("Photo")
+                self.tableView.backgroundView?.isHidden = true
             }
             
         }.store(in: &subscribes)
         
     }
     
+    
+    
+    
+    
     private func setupNavigationBar() {
-        navigationItem.searchController = searcheController
+        navigationItem.searchController = searchController
         navigationItem.title = "Search"
     }
     // ??
@@ -101,7 +116,9 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
                 self?.hideLoadingAnimation()
                 let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
                 self?.performSegue(withIdentifier: "showCalculator", sender: asset)
-                self?.searcheController.searchBar.text = nil
+                self?.searchController.searchBar.text = nil
+                
+                // при переходе действия
             }.store(in: &subscribes)
         
     }
@@ -152,5 +169,14 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
     func willPresentSearchController(_ searchController: UISearchController) {
         mode = .search
     }
+    
+}
+
+extension SearchTableViewController: UISearchBarDelegate {
+    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        one.imageView.isHidden = true
+//        self.tableView.backgroundView = SearchPlaceholderView()
+//    }
     
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class SearchPlaceholderView: UIView {
     
-    private lazy var imageView: UIImageView = {
+     lazy var imageView: UIImageView = {
         let image = UIImage(named: "imLaunch")
         let imageView = UIImageView()
         imageView.image = image

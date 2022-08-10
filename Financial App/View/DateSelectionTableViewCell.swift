@@ -17,22 +17,26 @@ class DateSelectionTableViewCell: UITableViewCell {
     
     func configure(with monthInfo: MonthInfo, index: Int, isSelectedIndex: Bool) {
         monthLabel.text = monthInfo.date.dateFormatter
-        
-        accessoryType = isSelectedIndex
-                        ? .checkmark
-                        : .none
+        accessoryType = isSelectedIndex ? .checkmark : .none
         
         
-        // Подумать как сделать свитч и выписывать года и месяцы
-        if index == 1 {
+        // Подумать как сделать выписывать года и месяцы
+        switch index {
+        case 1:
             monthsAgoLabel.text = "1 month ago"
-        } else if index > 1 {
+        case _ where index > 1:
             monthsAgoLabel.text = "\(index) months ago"
-        } else {
+        default:
             monthsAgoLabel.text = "Just invested"
         }
         
-     
+        
+//        if index == 12 || index == 24 {
+//            monthsAgoLabel.text = "1 ago"
+//        }
+        
+        
+        
         
         
     }
