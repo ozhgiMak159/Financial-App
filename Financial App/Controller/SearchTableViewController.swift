@@ -15,6 +15,9 @@ enum Mode {
     //case resum
 }
 
+// сделать кастомный навБар
+
+
 class SearchTableViewController: UITableViewController, UIAnimatable {
   
     private lazy var searchController: UISearchController = {

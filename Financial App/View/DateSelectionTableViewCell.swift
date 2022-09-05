@@ -19,8 +19,6 @@ class DateSelectionTableViewCell: UITableViewCell {
         monthLabel.text = monthInfo.date.dateFormatter
         accessoryType = isSelectedIndex ? .checkmark : .none
         
-        
-        // Подумать как сделать выписывать года и месяцы
         switch index {
         case 1:
             monthsAgoLabel.text = "1 month ago"
@@ -29,16 +27,6 @@ class DateSelectionTableViewCell: UITableViewCell {
         default:
             monthsAgoLabel.text = "Just invested"
         }
-        
-        
-//        if index == 12 || index == 24 {
-//            monthsAgoLabel.text = "1 ago"
-//        }
-        
-        
-        
-        
-        
     }
     
 }

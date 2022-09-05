@@ -22,6 +22,7 @@ enum APIServiceError: Error {
 
 class NetworkManager {
     static let shared = NetworkManager()
+    private init() {}
     private let apiKey = APIKEY.allCases.randomElement()?.rawValue ?? "Error ApiKey"
     
     func fetchData(keywords: String) -> AnyPublisher<SearchResults, Error> {
@@ -54,10 +55,7 @@ class NetworkManager {
                 .decode(type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
-        
     }
-    
-    private init() {}
     
 }
 
