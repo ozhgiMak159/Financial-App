@@ -276,21 +276,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-iG-Q1n">
-                                                    <rect key="frame" x="16" y="8" width="382" height="200"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="200"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="6ca-vr-5CD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="45"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your initial investment amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDl-eS-FIm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="FPJ-P6-WUZ"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" systemColor="systemBlueColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OgW-hO-mV8">
-                                                                    <rect key="frame" x="0.0" y="31" width="382" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="31" width="398" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial investmaent amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-uv-3EK">
                                                                             <rect key="frame" x="0.0" y="0.0" width="168" height="14"/>
@@ -302,7 +303,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(USD)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gve-9c-cZo">
-                                                                            <rect key="frame" x="172" y="0.0" width="210" height="14"/>
+                                                                            <rect key="frame" x="172" y="0.0" width="226" height="14"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -312,18 +313,19 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="3vx-Iv-OfL">
-                                                            <rect key="frame" x="0.0" y="50" width="382" height="45"/>
+                                                            <rect key="frame" x="0.0" y="50" width="398" height="45"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Monthly dollar cost averanging amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="unm-cJ-X41">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="eLb-9N-7gR"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" systemColor="systemBlueColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gla-qA-xQE">
-                                                                    <rect key="frame" x="0.0" y="31" width="382" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="31" width="398" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly dollar cost averanging amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEq-oY-6qj">
                                                                             <rect key="frame" x="0.0" y="0.0" width="251" height="14"/>
@@ -335,7 +337,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(USD)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCn-IO-cB1">
-                                                                            <rect key="frame" x="255" y="0.0" width="127" height="14"/>
+                                                                            <rect key="frame" x="255" y="0.0" width="143" height="14"/>
                                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -345,24 +347,25 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-4" translatesAutoresizingMaskIntoConstraints="NO" id="96f-lY-2zi">
-                                                            <rect key="frame" x="0.0" y="100" width="382" height="45"/>
+                                                            <rect key="frame" x="0.0" y="100" width="398" height="45"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the initial date of investment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="my4-Dk-UQA">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="l0x-ua-C7J"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" systemColor="systemBlueColor"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                     <connections>
                                                                         <outlet property="delegate" destination="vhN-Ds-QKY" id="qac-Ds-Jsl"/>
                                                                     </connections>
                                                                 </textField>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="N2f-Tm-bz7">
-                                                                    <rect key="frame" x="0.0" y="31" width="382" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="31" width="398" height="14"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial date of investment " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBQ-5x-POd">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="14"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="14"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="14" id="jDY-Li-RXE"/>
                                                                             </constraints>
@@ -375,7 +378,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-1S-Xrh">
-                                                            <rect key="frame" x="-2" y="150" width="386" height="51"/>
+                                                            <rect key="frame" x="-2" y="150" width="402" height="51"/>
                                                             <connections>
                                                                 <action selector="dateSliderAction:" destination="vhN-Ds-QKY" eventType="valueChanged" id="36c-LR-cCk"/>
                                                             </connections>
@@ -384,8 +387,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dO1-iG-Q1n" firstAttribute="leading" secondItem="phz-FK-rkF" secondAttribute="leading" constant="16" id="8Vu-YG-DbV"/>
-                                                <constraint firstAttribute="trailing" secondItem="dO1-iG-Q1n" secondAttribute="trailing" constant="16" id="A6h-E3-M9O"/>
+                                                <constraint firstItem="dO1-iG-Q1n" firstAttribute="leading" secondItem="phz-FK-rkF" secondAttribute="leading" constant="8" id="8Vu-YG-DbV"/>
+                                                <constraint firstAttribute="trailing" secondItem="dO1-iG-Q1n" secondAttribute="trailing" constant="8" id="A6h-E3-M9O"/>
                                                 <constraint firstAttribute="bottom" secondItem="dO1-iG-Q1n" secondAttribute="bottom" constant="8" id="SEc-bb-eyV"/>
                                                 <constraint firstItem="dO1-iG-Q1n" firstAttribute="top" secondItem="phz-FK-rkF" secondAttribute="top" constant="8" id="pCO-kR-msg"/>
                                             </constraints>
@@ -501,6 +504,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
