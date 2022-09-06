@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Calculator {
+class Calculator {
     
     func calculate(asset: Asset, initialInvestmentAmount: Double, monthlyDollarCostAveragingAmount: Double, initialDateInvestmentIndex: Int) -> Result {
         
@@ -18,7 +18,7 @@ struct Calculator {
         let numberOfShares = getNumberOfShares(asset: asset, initialInvestmentAmount: initialInvestmentAmount,monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateInvestmentIndex: initialDateInvestmentIndex)
         
         let currentValue = getCurrentValue(numberOfShares: numberOfShares, latestSharePrice: latestSharePrice)
-        let annumalReturn = getAnnualReturn(currentValue: currentValue, investmentAmount: investmentAmount,
+        let annualReturn = getAnnualReturn(currentValue: currentValue, investmentAmount: investmentAmount,
                             initialDateOfInvestmentIndex: initialDateInvestmentIndex)
         
         let isProfit = currentValue > investmentAmount
@@ -27,9 +27,8 @@ struct Calculator {
         
         
         return .init(currentValue: currentValue, investmentAmount: investmentAmount,
-                     gain: gain, yield: yield, annualReturn: annumalReturn,
+                     gain: gain, yield: yield, annualReturn: annualReturn,
                      isProfitable: isProfit)
-        
     }
     
     private func getAnnualReturn(currentValue: Double, investmentAmount: Double, initialDateOfInvestmentIndex: Int) -> Double {

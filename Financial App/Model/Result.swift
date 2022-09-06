@@ -8,7 +8,6 @@
 import Foundation
 
 struct Result {
-    
     let currentValue: Double
     let investmentAmount: Double
     let gain: Double

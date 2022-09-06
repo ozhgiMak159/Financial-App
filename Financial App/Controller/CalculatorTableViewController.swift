@@ -10,7 +10,7 @@ import Combine
 
 class CalculatorTableViewController: UITableViewController {
     
-    
+    // MARK: - @IBOutlet property
     @IBOutlet weak var currentValueLabel: UILabel!
     @IBOutlet weak var investmentAmountLabel: UILabel!
     @IBOutlet weak var gainLabel: UILabel!
@@ -21,15 +21,13 @@ class CalculatorTableViewController: UITableViewController {
     @IBOutlet var currencyLabels: [UILabel]!
     @IBOutlet weak var investmentAmountCurrencyLabel: UILabel!
     
-    
     @IBOutlet weak var initialInvestmentAmountTextField: UITextField!
     @IBOutlet weak var monthlyDollarCostAveragingTextField: UITextField!
     @IBOutlet weak var initialDateOfInvestment: UITextField!
     
-    
     @IBOutlet weak var dateSlider: UISlider!
     
-    
+    // MARK: - Private & Public property
     var asset: Asset?
     
     @Published private var initialDateOfInvestmentIndex: Int?
@@ -40,7 +38,7 @@ class CalculatorTableViewController: UITableViewController {
     private let calculator = Calculator()
     private let calculatorPresenter = CalculatorPresenter()
     
-    
+    // MARK: - Life Cycle Method
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
             initialInvestmentAmountTextField.becomeFirstResponder()
@@ -53,6 +51,7 @@ class CalculatorTableViewController: UITableViewController {
         observerForm()
     }
 
+    // MARK: - Private Method
     private func setupView() {
         navigationItem.title = asset?.searchResult.symbol
         symbolLabel.text = asset?.searchResult.symbol
@@ -121,10 +120,11 @@ class CalculatorTableViewController: UITableViewController {
                 
                 guard let this = self else { return }
                 
-                let result = this.calculator.calculate(asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue,
-                                                        monthlyDollarCostAveragingAmount: monthlyDollarCostAveraging.doubleValue,
-                                                        initialDateInvestmentIndex: initialDateOfInvestmentIndex)
-                
+                let result = this.calculator.calculate(
+                    asset: asset, initialInvestmentAmount: initialInvestmentAmount.doubleValue,
+                    monthlyDollarCostAveragingAmount: monthlyDollarCostAveraging.doubleValue,
+                    initialDateInvestmentIndex: initialDateOfInvestmentIndex
+                )
                 
                 let presentation = this.calculatorPresenter.getPresentation(result: result)
                 
@@ -140,20 +140,6 @@ class CalculatorTableViewController: UITableViewController {
         
         .store(in: &subscribers)
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let dateSelectionTableViewController = segue.destination as? DateSelectionTableViewController,
-              let timeSeriesMonthlyAdjusted = sender as? TimeSeriesMonthlyAdjusted  else { return }
-        
-        dateSelectionTableViewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
-        dateSelectionTableViewController.selectedIndex = initialDateOfInvestmentIndex
-        
-        dateSelectionTableViewController.didSelectDate = { [weak self] index in
-            self?.handleDateSelection(at: index)
-        }
-    }
-    
     
     private func handleDateSelection(at index: Int) {
         guard navigationController?.visibleViewController is DateSelectionTableViewController else { return }
@@ -181,13 +167,26 @@ class CalculatorTableViewController: UITableViewController {
         annualReturnLabel.textColor = .black
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dateSelectionTableViewController = segue.destination as? DateSelectionTableViewController,
+              let timeSeriesMonthlyAdjusted = sender as? TimeSeriesMonthlyAdjusted  else { return }
+        
+        dateSelectionTableViewController.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
+        dateSelectionTableViewController.selectedIndex = initialDateOfInvestmentIndex
+        
+        dateSelectionTableViewController.didSelectDate = { [weak self] index in
+            self?.handleDateSelection(at: index)
+        }
+    }
     
+    // MARK: - @IBAction Method
     @IBAction func dateSliderAction(_ sender: UISlider) {
         initialDateOfInvestmentIndex = Int(sender.value)
     }
-    
 }
 
+// MARK: - UITextFieldDelegate
 extension CalculatorTableViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

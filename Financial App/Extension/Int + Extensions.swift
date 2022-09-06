@@ -16,7 +16,5 @@ extension Int {
     var doubleValue: Double {
         return Double(self)
     }
-    
-    
-    
+
 }

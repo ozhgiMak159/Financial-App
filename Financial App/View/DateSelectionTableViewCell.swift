@@ -10,10 +10,8 @@ import UIKit
 
 class DateSelectionTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var monthsAgoLabel: UILabel!
-    
     
     func configure(with monthInfo: MonthInfo, index: Int, isSelectedIndex: Bool) {
         monthLabel.text = monthInfo.date.dateFormatter

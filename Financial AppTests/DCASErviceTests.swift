@@ -12,14 +12,14 @@ class DCAServiceTests: XCTestCase {
     
     var sut: Calculator!
 
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         sut = Calculator()
     }
 
-    override func tearDown() {
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
         sut = nil
-        super.tearDown()
     }
     
     // MARK: - UITesting
@@ -255,8 +255,9 @@ class DCAServiceTests: XCTestCase {
          yield = -1333.333 / 5000 = -0.26666
          */
     }
-    
-    // MARK: - Private Methods
+}
+
+extension DCAServiceTests {
     private func buildWinningAsset() -> Asset {
         let searchResult = buildSearchResult()
         let buildMetaResult = buildMetaResult()
@@ -291,8 +292,6 @@ class DCAServiceTests: XCTestCase {
         return Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
     }
     
-    
-    
     private func buildSearchResult() -> SearchResult {
         return SearchResult(symbol: "XYZ", name: "XYZ Company", type: "ETF", currency: "USD")
     }
@@ -300,7 +299,4 @@ class DCAServiceTests: XCTestCase {
     private func buildMetaResult() -> Meta {
         return Meta(symbol: "XYZ")
     }
-    
-
-    
 }

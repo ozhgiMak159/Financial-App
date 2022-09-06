@@ -8,17 +8,10 @@
 import Foundation
 import Combine
 
-enum APIKEY: String, CaseIterable {
-    case alphaVintageKeyOne = "FC6IT3JSCG8DUE1X"
-    case alphaVintageKeyTwo = "EYZ54UFGZMM4ADIY"
-    case alphaVintageKeyThere = "T9L1HBB7B26SKHHX"
-}
-
 enum APIServiceError: Error {
     case encoding
     case errorURL
 }
-
 
 class NetworkManager {
     static let shared = NetworkManager()

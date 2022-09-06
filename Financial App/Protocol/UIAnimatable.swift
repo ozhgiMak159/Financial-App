@@ -8,8 +8,6 @@
 import Foundation
 import MBProgressHUD
 
-
-// Расширение????
 protocol UIAnimatable where Self: UIViewController {
     func showLoadingAnimation()
     func hideLoadingAnimation()
@@ -17,8 +15,11 @@ protocol UIAnimatable where Self: UIViewController {
 
 extension UIAnimatable {
     func showLoadingAnimation() {
-        DispatchQueue.main.async {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
+        DispatchQueue.main.async { [unowned self] in
+            let isShown = view.subviews.filter { $0 is MBProgressHUD }.isEmpty == false
+            if !isShown {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+            }
         }
     }
     

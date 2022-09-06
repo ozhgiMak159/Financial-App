@@ -12,18 +12,14 @@ import MBProgressHUD
 enum Mode {
     case onboarding
     case search
-    //case resum
 }
-
-// сделать кастомный навБар
-
 
 class SearchTableViewController: UITableViewController, UIAnimatable {
   
+    //MARK: - Private Property
     private lazy var searchController: UISearchController = {
        let viewController = UISearchController(searchResultsController: nil)
         viewController.searchResultsUpdater = self
-        //viewController.delegate = self
         viewController.obscuresBackgroundDuringPresentation = false
         viewController.searchBar.placeholder = "Enter a company name or symbol"
         viewController.searchBar.autocapitalizationType = .allCharacters
@@ -32,11 +28,12 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     
     private var subscribes = Set<AnyCancellable>()
     private var searchResults: SearchResults?
-    private var one = SearchPlaceholderView()
+    private var showMainInfo = SearchPlaceholderView()
     
     @Published private var searchQuery: String = ""
     @Published private var mode: Mode = .onboarding
     
+    //MARK: - Life Cycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -46,19 +43,19 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         setDelegate()
     }
     
+    // MARK: - Private Method
     private func setDelegate() {
         searchController.delegate = self
-      //  searchController.searchBar.delegate = self
     }
     
-    
     private func observeFormSearchQuery() {
-        $searchQuery
-            .debounce(for: .milliseconds(750), scheduler: RunLoop.main)
+        $searchQuery.handleEvents(receiveOutput:  { [unowned self] output in
+            guard !output.isEmpty else { return }
+            showLoadingAnimation()
+        }).debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink { [unowned self] searchQuery in
                 guard !searchQuery.isEmpty else { return }
-                showLoadingAnimation()
-                    NetworkManager.shared.fetchData(keywords: searchQuery).sink { completion in
+                NetworkManager.shared.fetchData(keywords: searchQuery).sink { [unowned self] completion in
                     hideLoadingAnimation()
                     switch completion {
                     case .finished:
@@ -74,9 +71,6 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             }.store(in: &subscribes)
     }
     
-    
-    
-    
     private func observeFormMode() {
         $mode.sink { [unowned self] (mode) in
             switch mode {
@@ -90,15 +84,11 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         
     }
     
-    
-    
-    
-    
     private func setupNavigationBar() {
         navigationItem.searchController = searchController
         navigationItem.title = "Search"
     }
-    // ??
+  
     private func setupTableView() {
         tableView.isScrollEnabled = false
         tableView.tableFooterView = UIView()
@@ -120,10 +110,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
                 let asset = Asset(searchResult: searchResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
                 self?.performSegue(withIdentifier: "showCalculator", sender: asset)
                 self?.searchController.searchBar.text = nil
-                
-                // при переходе действия
             }.store(in: &subscribes)
-        
     }
     
     // MARK: - Table view data source
@@ -158,11 +145,10 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
             let asset = sender as? Asset {
                 destination.asset = asset
         }
-        
     }
-
 }
 
+// MARK: - UISearchResultsUpdating, UISearchControllerDelegate
 extension SearchTableViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchQuery = searchController.searchBar.text, !searchQuery.isEmpty else { return }
@@ -172,14 +158,5 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
     func willPresentSearchController(_ searchController: UISearchController) {
         mode = .search
     }
-    
 }
 
-extension SearchTableViewController: UISearchBarDelegate {
-    
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        one.imageView.isHidden = true
-//        self.tableView.backgroundView = SearchPlaceholderView()
-//    }
-    
-}

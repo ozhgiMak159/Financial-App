@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CalculatorPresenter {
+class CalculatorPresenter {
     
     func getPresentation(result: Result) -> CalculatorPresentation {
         

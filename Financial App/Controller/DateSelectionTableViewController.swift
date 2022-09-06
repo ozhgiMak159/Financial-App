@@ -10,20 +10,21 @@ import UIKit
 
 class DateSelectionTableViewController: UITableViewController {
     
-    
+    // MARK: - Private & Public property
     var timeSeriesMonthlyAdjusted: TimeSeriesMonthlyAdjusted?
-    private var mountInfos: [MonthInfo] = []
-    
-    //???? передача данных через протокол
     var didSelectDate: ((Int) -> Void)?
     var selectedIndex: Int?
     
+    private var mountInfos: [MonthInfo] = []
+    
+    // MARK: - Life Cycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMonthInfos()
         setupNavigation()
     }
     
+    // MARK: - Private Methods
     private func setupMonthInfos() {
         mountInfos = timeSeriesMonthlyAdjusted?.getMonthInfos() ?? []
     }
@@ -33,8 +34,8 @@ class DateSelectionTableViewController: UITableViewController {
     }
 }
 
+// MARK: - UITableViewControllerDelegate & UITableViewControllerDataSource
 extension DateSelectionTableViewController {
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
@@ -51,7 +52,6 @@ extension DateSelectionTableViewController {
         
         let isSelected = index == selectedIndex
         
-        
         cell.configure(with: monthInfo, index: index, isSelectedIndex: isSelected)
         
         return cell
@@ -60,6 +60,5 @@ extension DateSelectionTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectDate?(indexPath.row)
     }
-    
-    
+
 }
