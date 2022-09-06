@@ -18,6 +18,7 @@ class Calculator {
         let numberOfShares = getNumberOfShares(asset: asset, initialInvestmentAmount: initialInvestmentAmount,monthlyDollarCostAveragingAmount: monthlyDollarCostAveragingAmount, initialDateInvestmentIndex: initialDateInvestmentIndex)
         
         let currentValue = getCurrentValue(numberOfShares: numberOfShares, latestSharePrice: latestSharePrice)
+        
         let annualReturn = getAnnualReturn(currentValue: currentValue, investmentAmount: investmentAmount,
                             initialDateOfInvestmentIndex: initialDateInvestmentIndex)
         
@@ -34,7 +35,7 @@ class Calculator {
     private func getAnnualReturn(currentValue: Double, investmentAmount: Double, initialDateOfInvestmentIndex: Int) -> Double {
         let rate = currentValue / investmentAmount
         let yers = (initialDateOfInvestmentIndex.doubleValue + 1) / 12
-        let result = pow(rate, (1 / yers) ) - 1
+        let result = pow(rate, (1 / yers)) - 1
         return result
     }
     

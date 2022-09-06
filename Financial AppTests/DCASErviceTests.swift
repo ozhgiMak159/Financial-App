@@ -22,7 +22,7 @@ class DCAServiceTests: XCTestCase {
         sut = nil
     }
     
-    // MARK: - UITesting
+    // MARK: - UnitTesting
     func testInvestment_whenResultUsed_expectResult() {
         
         let initialInvestmentAmount: Double = 500
@@ -85,7 +85,7 @@ class DCAServiceTests: XCTestCase {
         )
         
         // then
-        XCTAssertEqual(result.investmentAmount, 12500, "investment amount is incorrect")
+        XCTAssertEqual(result.investmentAmount, 12500)
         XCTAssertTrue(result.isProfitable)
         
         XCTAssertEqual(result.currentValue, 17342.223, accuracy: 0.1)
