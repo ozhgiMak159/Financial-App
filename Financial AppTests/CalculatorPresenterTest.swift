@@ -18,8 +18,8 @@ class CalculatorPresenterTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        sut = nil
         try super.tearDownWithError()
+        sut = nil
     }
 
     func testAnnualReturnLabelTextColor_givenResultIsProfitable_expectSystemGreen()  {
@@ -99,7 +99,4 @@ class CalculatorPresenterTest: XCTestCase {
         XCTAssertEqual(presentation.yield.last, closeBracket)
         
     }
-    
-    
-
 }

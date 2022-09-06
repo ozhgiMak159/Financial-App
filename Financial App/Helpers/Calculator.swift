@@ -67,7 +67,6 @@ class Calculator {
             let dcaInvestmentShares = monthlyDollarCostAveragingAmount / monthInfo.adjustedOpen
             totalShares += dcaInvestmentShares 
         }
-        
             return totalShares
     }
 

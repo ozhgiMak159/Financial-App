@@ -23,7 +23,8 @@ class CalculatorPresenter {
             yield: result.yield.percentageFormat.prefix(withText: gainSymbol).addBrackets(),
             yieldLabelTextColor: isProfitable ? .systemGreen : .systemRed,
             annualReturn: result.annualReturn.percentageFormat,
-            annualReturnLabelTextColor: isProfitable ? .systemGreen : .systemRed)
+            annualReturnLabelTextColor: isProfitable ? .systemGreen : .systemRed
+        )
     }
     
 }
